@@ -36,7 +36,7 @@ async def get_command(bot, update):
     )
 
 
-@Client.on_message(filters.private & filters.text & ~filters.via_bot & ~filters.edited)
+@Client.on_message(filters.private & filters.text & ~filters.via_bot & ~filters.edit)
 async def get_movie_name(bot, update):
     if not await db.is_user_exist(update.from_user.id):
         await db.add_user(update.from_user.id)
